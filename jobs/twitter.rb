@@ -1,20 +1,24 @@
 require 'twitter'
+require 'yaml'
 
+twitter_config = YAML.load_file File.join(File.expand_path(File.dirname(__FILE__)), '..', 'config', 'twitter.yml')
 
 #### Get your twitter keys & secrets:
 #### https://dev.twitter.com/docs/auth/tokens-devtwittercom
 twitter = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'YOUR_CONSUMER_KEY'
-  config.consumer_secret = 'YOUR_CONSUMER_SECRET'
-  config.access_token = 'YOUR_OAUTH_TOKEN'
-  config.access_token_secret = 'YOUR_OAUTH_SECRET'
+  config.consumer_key = twitter_config['consumer_key']
+  config.consumer_secret = twitter_config['consumer_secret']
+  config.access_token = twitter_config['access_token']
+  config.access_token_secret = twitter_config['access_token_secret']
 end
 
-search_term = URI::encode('#todayilearned')
 
 SCHEDULER.every '10m', :first_in => 0 do |job|
   begin
-    tweets = twitter.search("#{search_term}")
+    # search_term = URI::encode('#todayilearned')
+    # tweets = twitter.search("#{search_term}")
+
+    tweets = twitter.home_timeline
 
     if tweets
       tweets = tweets.map do |tweet|
