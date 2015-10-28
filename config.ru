@@ -1,7 +1,8 @@
+require "sinatra/cyclist"
 require 'dashing'
 
 configure do
-  set :auth_token, 'YOUR_AUTH_TOKEN'
+  set :auth_token, 'THISISMYAUTHTOKEN!THEREAREMANYLIKEITBUTTHISONEISMINE!'
 
   helpers do
     def protected!
@@ -14,5 +15,8 @@ end
 map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
 end
+
+# set :routes_to_cycle_through, [:portal_view, :index, :index2]
+set :routes_to_cycle_through, [:portal_view, :index]
 
 run Sinatra::Application
