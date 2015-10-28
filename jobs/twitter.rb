@@ -6,10 +6,10 @@ twitter_config = YAML.load_file File.join(File.expand_path(File.dirname(__FILE__
 #### Get your twitter keys & secrets:
 #### https://dev.twitter.com/docs/auth/tokens-devtwittercom
 twitter = Twitter::REST::Client.new do |config|
-  config.consumer_key = twitter_config['consumer_key']
-  config.consumer_secret = twitter_config['consumer_secret']
-  config.access_token = twitter_config['access_token']
-  config.access_token_secret = twitter_config['access_token_secret']
+  config.consumer_key = twitter_config[:consumer_key]
+  config.consumer_secret = twitter_config[:consumer_secret]
+  config.access_token = twitter_config[:access_token]
+  config.access_token_secret = twitter_config[:access_token_secret]
 end
 
 
