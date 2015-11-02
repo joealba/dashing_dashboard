@@ -7,4 +7,4 @@ gem 'twitter', '>= 5.9.0'
 gem 'google-api-client'
 gem 'rest-client'
 gem 'xml-simple'
-gem "zendesk_api", "~> 1.12.1"
+gem "zendesk_api", "~> 1.12"

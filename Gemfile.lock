@@ -167,7 +167,7 @@ DEPENDENCIES
   sinatra_cyclist
   twitter (>= 5.9.0)
   xml-simple
-  zendesk_api (~> 1.12.1)
+  zendesk_api (~> 1.12)
 
 BUNDLED WITH
    1.10.6
