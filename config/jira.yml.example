@@ -1,0 +1,7 @@
+---
+:host: https://my.jira.server
+:username: myUserName
+:password: myPassword
+:consumer_key: CONSUMER_KEY
+:consumer_secret: SECRET
+:jql: "resolution = unresolved order by created DESC"
