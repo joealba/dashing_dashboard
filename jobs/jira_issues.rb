@@ -22,8 +22,8 @@ SCHEDULER.every '15m', :first_in => 0 do
 
   jira_issues = issues.map do |issue|
     {
-      name: Time.parse(issue.created).strftime("%b %e, %Y %l:%M %p"),
-      body: issue.summary
+      name: issue.project.name,
+      body: "#{issue.summary} (#{Time.parse(issue.created).strftime("%b %e, %Y %l:%M %p")})"
     }
   end
 
